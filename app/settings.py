@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'pzmaeg=(8-0#5yt^s#lk5+1km!h3jbg4wchu6souuv!9l#%2tc'
 #SECRET_KEY=config("SECRET_KEY")
-SECRET_KEY = config('SECRET_KEY', default='clave_de_respaldo_segura')
+SECRET_KEY = config('SECRET_KEY')
 #print("Valor de SECRET_KEY:", SECRET_KEY)  # Línea de depuración
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -96,7 +96,9 @@ DATABASES = {
         'PASSWORD': '190899ED',
         'PORT': 5435
     }
+    
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Password validation
@@ -138,6 +140,11 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#STATIC_URL = '/static/'
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 
